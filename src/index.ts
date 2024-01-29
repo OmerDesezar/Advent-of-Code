@@ -1,9 +1,10 @@
-import { runFunc } from "./utils";
+import { initFunctionDB, runFunc } from "./utils";
 
 const YEAR = 2023;
 const DAY = 1;
 
 const main = () => {
+  initFunctionDB();
   console.log(`Calculatin result for Question ${DAY} from the year ${YEAR}`);
   console.log(runFunc(YEAR, DAY));
 };

@@ -1,14 +1,10 @@
 import fs from "fs";
+import { init2023 } from "./2023/entry";
 
 const functionDB: { [year: number]: { [day: number]: () => number } } = {};
 
 export const getInput = (): string[] => {
-  let ret: string[] = [];
-  fs.readFile("Input.txt", (e, data) => {
-    if (e) throw e;
-    ret = data.toString().split("\r\n");
-  });
-  return ret;
+  return fs.readFileSync("Input.txt").toString().split("\r\n");
 };
 
 export const registerFunc = (
@@ -22,4 +18,8 @@ export const registerFunc = (
 
 export const runFunc = (year: number, day: number): number => {
   return functionDB[year][day]();
+};
+
+export const initFunctionDB = (): void => {
+  init2023();
 };
