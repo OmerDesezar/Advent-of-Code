@@ -3,7 +3,7 @@ import { getInput, registerFunc } from "../utils";
 const dayOnePartOne = () => {
   let sum = 0;
   getInput().forEach((val) => {
-    const numArr = [...val.matchAll(/\d/g)].map(Number);
+    const numArr = [...val.matchAll(/\d/g)];
     sum += Number(`${numArr.at(0)}${numArr.at(-1)}`);
   });
   return sum;
