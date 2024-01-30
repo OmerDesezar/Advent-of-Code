@@ -31,13 +31,15 @@ const dayFourPartTwo = () => {
     });
     cards.push([1, prize]);
   });
+  let sum = 0;
   for (let i = 0; i < cards.length; i++) {
     let [count, points] = cards[i];
+    sum += count;
     for (let p = 1; p <= points; p++) {
       if (cards[i + p]) cards[i + p][0] += count;
     }
   }
-  return cards.reduce((acc, [count]) => acc + count, 0);
+  return sum;
 };
 
 export const registerDayFour = () => {
