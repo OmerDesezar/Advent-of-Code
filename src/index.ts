@@ -2,14 +2,14 @@ import { initFunctionDB, runFunc } from "./utils";
 
 const YEAR = 2023;
 const DAY = 5;
-const PART = 1;
+const PART = 2;
 
-const main = () => {
+const main = async () => {
   initFunctionDB();
   console.log(
-    `Calculatin result for Part ${PART} of Question ${DAY} from the year ${YEAR}`
+    `Year:     ${YEAR}\nQuestion: ${DAY}\nPart:     ${PART}\nCalculating...`
   );
-  console.log(runFunc(YEAR, DAY, PART));
+  console.log(await runFunc(YEAR, DAY, PART));
 };
 
 main();

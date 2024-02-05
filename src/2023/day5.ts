@@ -1,6 +1,44 @@
 import { getInput, registerFunc } from "../utils";
+import { Worker } from "worker_threads";
 
-const dayFivePartOne = () => {
+const dayFivePartOne = async () => {
+  const { seeds, maps } = getRestructuredData();
+  const promiseArr: any[] = [];
+  seeds.forEach((seed) => {
+    promiseArr.push(asyncFind(seed, 1, maps));
+  });
+  const values = await Promise.all(promiseArr);
+  return Math.min(...values);
+};
+
+const dayFivePartTwo = async () => {
+  const { seeds, maps } = getRestructuredData();
+  const promiseArr: any[] = [];
+  for (let i = 0; i < seeds.length; i = i + 2) {
+    const start = seeds[i];
+    const len = seeds[i + 1];
+    promiseArr.push(asyncFind(start, len, maps));
+  }
+  const values = await Promise.all(promiseArr);
+  return Math.min(...values);
+};
+
+export const registerDayFive = () => {
+  registerFunc(2023, 5, 1, dayFivePartOne);
+  registerFunc(2023, 5, 2, dayFivePartTwo);
+};
+
+const asyncFind = async (start, len, maps) => {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker("./src/2023/workers/day5part2Worker.js", {
+      workerData: { start, len, maps },
+    });
+    worker.once("message", resolve);
+    worker.once("error", reject);
+  });
+};
+
+const getRestructuredData = () => {
   const data = getInput();
   const seeds = data[0]
     .split(":")[1]
@@ -20,29 +58,5 @@ const dayFivePartOne = () => {
   }
   maps[currName] = currVal;
 
-  let min: number = Number.MAX_SAFE_INTEGER;
-  seeds.forEach((seed) => {
-    Object.values(maps).forEach((map) => {
-      const found = map.find(
-        ([_, src, len]) => seed >= src && seed < src + len
-      );
-      if (found) {
-        const [dest, src] = found;
-        seed += dest - src;
-      }
-    });
-    min = Math.min(min, seed);
-  });
-  return min;
-};
-
-const dayFivePartTwo = () => {
-  let sum = 0;
-  getInput();
-  return sum;
-};
-
-export const registerDayFive = () => {
-  registerFunc(2023, 5, 1, dayFivePartOne);
-  registerFunc(2023, 5, 2, dayFivePartTwo);
+  return { seeds, maps };
 };
