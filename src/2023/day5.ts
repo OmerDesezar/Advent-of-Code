@@ -1,7 +1,7 @@
 import { getInput, registerFunc } from "../utils";
 import { Worker } from "worker_threads";
 
-const dayFivePartOne = async () => {
+const day5Part1 = async () => {
   const { seeds, maps } = getRestructuredData();
   const promiseArr: any[] = [];
   seeds.forEach((seed) => {
@@ -11,7 +11,7 @@ const dayFivePartOne = async () => {
   return Math.min(...values);
 };
 
-const dayFivePartTwo = async () => {
+const day5Part2 = async () => {
   const { seeds, maps } = getRestructuredData();
   const promiseArr: any[] = [];
   for (let i = 0; i < seeds.length; i = i + 2) {
@@ -23,9 +23,9 @@ const dayFivePartTwo = async () => {
   return Math.min(...values);
 };
 
-export const registerDayFive = () => {
-  registerFunc(2023, 5, 1, dayFivePartOne);
-  registerFunc(2023, 5, 2, dayFivePartTwo);
+export const registerDay5 = () => {
+  registerFunc(2023, 5, 1, day5Part1);
+  registerFunc(2023, 5, 2, day5Part2);
 };
 
 const asyncFind = async (start, len, maps) => {

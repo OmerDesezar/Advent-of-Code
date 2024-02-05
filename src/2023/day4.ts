@@ -1,6 +1,6 @@
 import { getInput, registerFunc } from "../utils";
 
-const dayFourPartOne = () => {
+const day4Part1 = () => {
   let sum = 0;
   getInput().forEach((val) => {
     let prize = 0;
@@ -18,7 +18,7 @@ const dayFourPartOne = () => {
   return sum;
 };
 
-const dayFourPartTwo = () => {
+const day4Part2 = () => {
   const cards: number[][] = [];
   getInput().forEach((val) => {
     let prize = 0;
@@ -42,7 +42,7 @@ const dayFourPartTwo = () => {
   return sum;
 };
 
-export const registerDayFour = () => {
-  registerFunc(2023, 4, 1, dayFourPartOne);
-  registerFunc(2023, 4, 2, dayFourPartTwo);
+export const registerDay4 = () => {
+  registerFunc(2023, 4, 1, day4Part1);
+  registerFunc(2023, 4, 2, day4Part2);
 };

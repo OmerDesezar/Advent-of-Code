@@ -4,7 +4,7 @@ import { getInput, registerFunc } from "../utils";
 // iterate over it
 // search recursively each spot and add to sum
 
-const dayThreePartOne = () => {
+const day3Part1 = () => {
   let sum = 0;
   const matrix = getInput().map((str) => str.split(""));
   for (let i = 0; i < matrix.length; i++) {
@@ -15,7 +15,7 @@ const dayThreePartOne = () => {
   return sum;
 };
 
-const dayThreePartTwo = () => {
+const day3Part2 = () => {
   let sum = 0;
   const matrix = getInput().map((str) => str.split(""));
   for (let i = 0; i < matrix.length; i++) {
@@ -27,9 +27,9 @@ const dayThreePartTwo = () => {
   return sum;
 };
 
-export const registerDayThree = () => {
-  registerFunc(2023, 3, 1, dayThreePartOne);
-  registerFunc(2023, 3, 2, dayThreePartTwo);
+export const registerDay3 = () => {
+  registerFunc(2023, 3, 1, day3Part1);
+  registerFunc(2023, 3, 2, day3Part2);
 };
 
 const recSearchPart1 = (matrix, i, j, valid = false, sum = 0) => {
