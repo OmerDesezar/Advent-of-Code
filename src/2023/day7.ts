@@ -2,9 +2,16 @@ import { getInput, registerFunc } from "../utils";
 
 const day7Part1 = () => {
   const data = getRestructuredData();
-  console.log(data);
-  const after = data.map(([hand, prize]) => [convertHandToValue(hand), prize]);
-  console.log(after);
+  const afterConversion = data.map(([hand, prize]) => [
+    convertHandToValue(hand),
+    Number(prize),
+  ]);
+  afterConversion.sort((a, b) => a[0] - b[0]);
+  let sum = 0;
+  afterConversion.forEach(([_, prize], i) => {
+    sum += prize * (i + 1);
+  });
+  return sum;
 };
 
 const day7Part2 = () => {};
