@@ -33,14 +33,14 @@ const convertHandToValue = (s: string): number => {
     cardCounter[card] ? cardCounter[card]++ : (cardCounter[card] = 1);
   });
   const count = Object.values(cardCounter);
-  if (count.includes(5)) value += 100000000000;
-  else if (count.includes(4)) value += 10000000000;
-  else if (count.includes(3) && count.includes(2)) value += 1000000000;
-  else if (count.includes(3)) value += 100000000;
-  else if (count.filter((v) => v !== 2).length == 1) value += 10000000;
-  else if (count.includes(2)) value += 1000000;
+  if (count.includes(5)) value += 1000000000000;
+  else if (count.includes(4)) value += 100000000000;
+  else if (count.includes(3) && count.includes(2)) value += 10000000000;
+  else if (count.includes(3)) value += 1000000000;
+  else if (count.filter((v) => v !== 2).length == 1) value += 100000000;
+  else if (count.includes(2)) value += 10000000;
 
-  let mult = 10000;
+  let mult = 100000;
   hand.forEach((card) => {
     if (Number.isInteger(Number(card))) value += Number(card) * mult;
     else if (card === "T") value += 10 * mult;
@@ -49,7 +49,7 @@ const convertHandToValue = (s: string): number => {
     else if (card === "K") value += 13 * mult;
     else if (card === "A") value += 14 * mult;
 
-    mult /= 10;
+    mult /= 14;
   });
 
   return value;
