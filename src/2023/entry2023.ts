@@ -5,13 +5,15 @@ import { registerDay4 } from "./day4";
 import { registerDay5 } from "./day5";
 import { registerDay6 } from "./day6";
 import { registerDay7 } from "./day7";
+import { registerDay8 } from "./day8";
 
 export const init2023 = () => {
-  registerDay1();
-  registerDay2();
-  registerDay3();
-  registerDay4();
-  registerDay5();
-  registerDay6();
-  registerDay7();
+	registerDay1();
+	registerDay2();
+	registerDay3();
+	registerDay4();
+	registerDay5();
+	registerDay6();
+	registerDay7();
+	registerDay8();
 };

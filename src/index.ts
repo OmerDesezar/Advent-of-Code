@@ -1,8 +1,8 @@
 import { initFunctionDB, runFunc } from "./utils";
 
 const YEAR = 2023;
-const DAY = 7;
-const PART = 1;
+const DAY = 8;
+const PART = 2;
 
 const main = async () => {
 	initFunctionDB();
