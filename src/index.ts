@@ -1,7 +1,7 @@
 import { initFunctionDB, runFunc } from "./utils";
 
 const YEAR = 2023;
-const DAY = 9;
+const DAY = 10;
 const PART = 1;
 
 const main = async () => {
