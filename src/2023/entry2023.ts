@@ -6,6 +6,7 @@ import { registerDay5 } from "./day5";
 import { registerDay6 } from "./day6";
 import { registerDay7 } from "./day7";
 import { registerDay8 } from "./day8";
+import { registerDay9 } from "./day9";
 
 export const init2023 = () => {
 	registerDay1();
@@ -16,4 +17,5 @@ export const init2023 = () => {
 	registerDay6();
 	registerDay7();
 	registerDay8();
+	registerDay9();
 };
