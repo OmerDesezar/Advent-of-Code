@@ -78,11 +78,11 @@ const day10Part2 = () => {
 	if (["-*", "L*", "F*"].includes(matrix[x][y - 1])) sType += "left";
 	if (["-*", "7*", "J*"].includes(matrix[x][y + 1])) sType += "right";
 	if (sType === "updown") matrix[x][y] = "|*";
-	if (sType === "upleft") matrix[x][y] = "|*";
-	if (sType === "right") matrix[x][y] = "|*";
-	if (sType === "downleft") matrix[x][y] = "|*";
-	if (sType === "downright") matrix[x][y] = "|*";
-	if (sType === "leftright") matrix[x][y] = "|*";
+	if (sType === "upleft") matrix[x][y] = "J*";
+	if (sType === "upright") matrix[x][y] = "L*";
+	if (sType === "downleft") matrix[x][y] = "7*";
+	if (sType === "downright") matrix[x][y] = "F*";
+	if (sType === "leftright") matrix[x][y] = "-*";
 
 	let counter = 0;
 	for (let i = 0; i < matrix.length; i++) {
